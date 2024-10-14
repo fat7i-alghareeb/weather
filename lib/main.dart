@@ -2,9 +2,11 @@ import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 
+import 'utils/get_it.dart';
 import 'utils/routers/app_router.dart';
 
 void main() {
+  setup();
   late bool devicePreview = true;
   runApp(devicePreview
       ? DevicePreview(builder: (context) {
@@ -20,6 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
+      debugShowCheckedModeBanner: false,
       routeInformationParser: BeamerParser(),
       routerDelegate: AppRouter.mainBeamerDelegate,
       title: 'weather app',
