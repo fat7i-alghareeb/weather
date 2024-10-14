@@ -4,7 +4,6 @@ import 'astro_model.dart';
 
 part 'forecast_model.g.dart';
 
-// Forecast Model
 @JsonSerializable()
 class ForecastModel {
   final String date;
