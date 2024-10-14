@@ -9,7 +9,7 @@ import '../../features/home/presentation/ui/views/details_screen.dart';
 import '../../features/on_boarding/presentation/ui/on_boarding_screen.dart';
 import 'routers_paths.dart';
 
-bool isFirstTime = true;
+bool isFirstTime = false;
 
 class AppRouter {
   static final mainBeamerDelegate = BeamerDelegate(

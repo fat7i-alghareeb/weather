@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
+      debugShowCheckedModeBanner: false,
       routeInformationParser: BeamerParser(),
       routerDelegate: AppRouter.mainBeamerDelegate,
       title: 'weather app',
