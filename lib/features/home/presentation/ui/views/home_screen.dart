@@ -24,7 +24,10 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (context, state) {
           if (state is WeatherSuccess) {
             return Center(
-              child: Text(state.weatherEntity.locationName),
+              child: Text(
+                state.weatherEntity.locationName,
+                style: const TextStyle(fontSize: 50),
+              ),
             );
           }
 
