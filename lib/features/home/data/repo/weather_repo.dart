@@ -9,7 +9,7 @@ import '../../../../utils/errors/failure.dart';
 class WeatherRepo {
   final ApiService apiService;
   WeatherRepo(this.apiService);
-  Future<Either<Failure, WeatherEntity>> fetchSearchedMovies() async {
+  Future<Either<Failure, WeatherEntity>> getWeatherData() async {
     try {
       WeatherModel weatherModel = await apiService.getWeather();
 
