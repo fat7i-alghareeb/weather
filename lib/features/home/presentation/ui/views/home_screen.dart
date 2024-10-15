@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/features/home/presentation/manager/cubit/weather_cubit.dart';
-import 'package:weather_app/features/home/presentation/manager/cubit/weather_state.dart';
 import 'package:weather_app/shared/widgets/gradient_background.dart';
-import 'package:weather_app/utils/app_text_styles.dart';
-import 'package:weather_app/utils/extensions.dart';
-import '../../../../../utils/assets.dart';
-import '../../../../../utils/spacing.dart';
 import '../widgets/home_body.dart';
-import '../widgets/hourly_weather_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
