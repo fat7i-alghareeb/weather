@@ -11,7 +11,7 @@ import 'utils/routers/app_router.dart';
 
 void main() {
   setup();
-  late bool devicePreview = false;
+  late bool devicePreview = true;
   runApp(devicePreview
       ? DevicePreview(builder: (context) {
           return const MyApp();
