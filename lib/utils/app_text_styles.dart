@@ -2,62 +2,62 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class Styles {
-  static TextStyle w600s64 = TextStyle(
+  static TextStyle w600s64 = const TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 64.sp,
+    fontSize: 64,
     color: Colors.white,
   );
-  static TextStyle w600s40 = TextStyle(
+  static TextStyle w600s40 = const TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 40.sp,
+    fontSize: 40,
     color: Colors.white,
   );
 
-  static TextStyle w400s24 = TextStyle(
+  static TextStyle w400s24 = const TextStyle(
     fontWeight: FontWeight.w400,
-    fontSize: 24.sp,
+    fontSize: 24,
     color: Colors.white,
   );
 
-  static TextStyle w600s20 = TextStyle(
+  static TextStyle w600s20 = const TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 20.sp,
+    fontSize: 20,
     color: Colors.white,
   );
 
-  static TextStyle w500s20 = TextStyle(
+  static TextStyle w500s20 = const TextStyle(
     fontWeight: FontWeight.w500,
-    fontSize: 20.sp,
+    fontSize: 20,
     color: Colors.white,
   );
 
-  static TextStyle w500s64 = TextStyle(
+  static TextStyle w500s64 = const TextStyle(
     fontWeight: FontWeight.w500,
-    fontSize: 64.sp,
+    fontSize: 64,
     color: Colors.white,
   );
 
-  static TextStyle w700s24 = TextStyle(
+  static TextStyle w700s24 = const TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 24.sp,
+    fontSize: 24,
     color: Colors.white,
   );
 
-  static TextStyle w600s28 = TextStyle(
+  static TextStyle w600s28 = const TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 28.sp,
+    fontSize: 28,
     color: Colors.white,
   );
 
-  static TextStyle w600s18 = TextStyle(
+  static TextStyle w600s18 = const TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 18.sp,
+    fontSize: 18,
     color: Colors.white,
   );
 
-  static TextStyle w400s16 = TextStyle(
+  static TextStyle w400s16 = const TextStyle(
     fontWeight: FontWeight.w400,
-    fontSize: 16.sp,
+    fontSize: 16,
     color: Colors.white,
   );
 }

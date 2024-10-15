@@ -9,4 +9,5 @@ class Assets {
   static const String air = "images/air.png";
   static const String arrowLeft = "images/arrowLeft.png";
   static const String arrowRight = "images/arrowRight.png";
+  static const String container = "images/rectangle.png";
 }
