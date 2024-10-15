@@ -2,6 +2,7 @@ import 'package:beamer/beamer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:weather_app/features/home/data/repo/weather_repo.dart';
+import 'package:weather_app/features/home/domain/entities/weather_entity.dart';
 import 'package:weather_app/features/home/presentation/manager/cubit/weather_cubit.dart';
 import 'package:weather_app/features/home/presentation/ui/views/home_screen.dart';
 import 'package:weather_app/utils/get_it.dart';
@@ -30,9 +31,12 @@ class AppRouter {
           );
         },
         RoutesPaths.details: (context, state, data) {
+          final WeatherEntity weatherEntity = data as WeatherEntity;
           return ResponsiveScaledBox(
             width: Constants.responsiveValue(context).value,
-            child: const DetailsScreen(),
+            child: DetailsScreen(
+              weatherEntity: weatherEntity,
+            ),
           );
         },
       },

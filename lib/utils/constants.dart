@@ -9,9 +9,18 @@ class Constants {
       ResponsiveValue<double>(context, conditionalValues: [
         const Condition.between(start: 0, end: 400, value: 430),
         const Condition.between(start: 400, end: 450, value: 470),
-        const Condition.between(start: 450, end: 800, value: 500),
-        const Condition.between(start: 800, end: 1100, value: 1100),
-        const Condition.between(start: 1100, end: 1400, value: 1300),
+        const Condition.between(start: 450, end: 1000, value: 500),
+        const Condition.between(start: 1000, end: 1400, value: 500),
         const Condition.between(start: 1400, end: 9999, value: 900),
       ]);
+
+  static List<String> days = [
+    "Sat",
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+  ];
 }

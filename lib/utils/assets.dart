@@ -10,4 +10,6 @@ class Assets {
   static const String arrowLeft = "images/arrowLeft.png";
   static const String arrowRight = "images/arrowRight.png";
   static const String container = "images/rectangle.png";
+  static const String forecast = "images/forecast.png";
+  static const String sunCard = "images/sunCard.png";
 }

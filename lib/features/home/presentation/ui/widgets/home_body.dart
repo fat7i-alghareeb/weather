@@ -1,6 +1,9 @@
+import 'package:beamer/beamer.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/utils/extensions.dart';
+import 'package:weather_app/utils/routers/routers_paths.dart';
 
 import '../../../../../utils/app_text_styles.dart';
 import '../../../../../utils/assets.dart';
@@ -52,10 +55,14 @@ class HomeBody extends StatelessWidget {
                 ),
               ),
               verticalSpace(context.heightPercentage(3.31)),
-              Image.asset(
-                Assets.house,
-                height: context.heightPercentage(20.5),
-                alignment: Alignment.center,
+              GestureDetector(
+                onTap: () => context.beamToNamed(RoutesPaths.details,
+                    data: state.weatherEntity),
+                child: Image.asset(
+                  Assets.house,
+                  height: context.heightPercentage(20.5),
+                  alignment: Alignment.center,
+                ),
               ),
               HourlyWeatherWidget(
                 weather: state.weatherEntity.currentTemp,
