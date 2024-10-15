@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../shared/widgets/gradient_background.dart';
+import 'widgets/on_boarding_body.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -6,8 +8,11 @@ class OnBoardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child: Text("data"),
+      body: Stack(
+        children: [
+          GradientBackground(),
+          OnBoardingBody(),
+        ],
       ),
     );
   }

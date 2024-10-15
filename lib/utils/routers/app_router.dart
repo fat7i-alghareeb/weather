@@ -11,7 +11,7 @@ import '../../features/on_boarding/presentation/ui/on_boarding_screen.dart';
 import '../constants.dart';
 import 'routers_paths.dart';
 
-bool isFirstTime = false;
+bool isFirstTime = true;
 
 class AppRouter {
   static final mainBeamerDelegate = BeamerDelegate(
@@ -19,10 +19,7 @@ class AppRouter {
     locationBuilder: RoutesLocationBuilder(
       routes: {
         RoutesPaths.onBoardingScreen: (context, state, data) =>
-            ResponsiveScaledBox(
-              width: Constants.responsiveValue(context).value,
-              child: const OnBoardingScreen(),
-            ),
+            const OnBoardingScreen(),
         RoutesPaths.home: (context, state, data) {
           return ResponsiveScaledBox(
             width: Constants.responsiveValue(context).value,

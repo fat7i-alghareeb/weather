@@ -1,14 +1,17 @@
 import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:weather_app/utils/themes.dart';
 
 import 'utils/get_it.dart';
 import 'utils/routers/app_router.dart';
 
 void main() {
   setup();
-  late bool devicePreview = true;
+  late bool devicePreview = false;
   runApp(devicePreview
       ? DevicePreview(builder: (context) {
           return const MyApp();
@@ -21,24 +24,31 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      locale: DevicePreview.locale(context),
-      builder: (context, child) => ResponsiveBreakpoints.builder(
-        child: DevicePreview.appBuilder(context, child!),
-        breakpoints: [
-          const Breakpoint(start: 0, end: 450, name: MOBILE),
-          const Breakpoint(start: 451, end: 800, name: TABLET),
-          const Breakpoint(start: 801, end: 1920, name: DESKTOP),
-          const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
-        ],
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: Color(0xFF8f3da7),
       ),
-      debugShowCheckedModeBanner: false,
-      routeInformationParser: BeamerParser(),
-      routerDelegate: AppRouter.mainBeamerDelegate,
-      title: 'weather app',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    );
+
+    return ScreenUtilInit(
+      designSize: const Size(428, 926),
+      child: MaterialApp.router(
+        locale: DevicePreview.locale(context),
+        builder: (context, child) => ResponsiveBreakpoints.builder(
+          child: DevicePreview.appBuilder(context, child!),
+          breakpoints: [
+            const Breakpoint(start: 0, end: 450, name: MOBILE),
+            const Breakpoint(start: 451, end: 800, name: TABLET),
+            const Breakpoint(start: 801, end: 1920, name: DESKTOP),
+            const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
+          ],
+        ),
+        debugShowCheckedModeBanner: false,
+        routeInformationParser: BeamerParser(),
+        routerDelegate: AppRouter.mainBeamerDelegate,
+        title: 'weather app',
+        theme: theme,
       ),
     );
   }
