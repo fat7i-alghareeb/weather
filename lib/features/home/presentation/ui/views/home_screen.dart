@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/features/home/presentation/manager/cubit/weather_cubit.dart';
 import 'package:weather_app/features/home/presentation/manager/cubit/weather_state.dart';
+import 'package:weather_app/shared/widgets/gradient_background.dart';
+import 'package:weather_app/utils/app_text_styles.dart';
+import 'package:weather_app/utils/extensions.dart';
+import '../../../../../utils/assets.dart';
+import '../../../../../utils/spacing.dart';
+import '../widgets/home_body.dart';
+import '../widgets/hourly_weather_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,20 +26,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocBuilder<WeatherCubit, WeatherState>(
-        builder: (context, state) {
-          if (state is WeatherSuccess) {
-            return Center(
-              child: Text(
-                state.weatherEntity.locationName,
-                style: const TextStyle(fontSize: 50),
-              ),
-            );
-          }
-
-          return const Center(child: CircularProgressIndicator());
-        },
+    return const Scaffold(
+      body: Stack(
+        children: [
+          GradientBackground(),
+          HomeBody(),
+        ],
       ),
     );
   }
