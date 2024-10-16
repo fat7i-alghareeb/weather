@@ -1,15 +1,14 @@
 import 'package:beamer/beamer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/utils/extensions.dart';
 import 'package:weather_app/utils/routers/routers_paths.dart';
-
 import '../../../../../utils/app_text_styles.dart';
 import '../../../../../utils/assets.dart';
 import '../../../../../utils/spacing.dart';
 import '../../manager/cubit/weather_cubit.dart';
 import '../../manager/cubit/weather_state.dart';
+import 'bottom_bar.dart';
 import 'hourly_weather_widget.dart';
 
 class HomeBody extends StatelessWidget {
@@ -65,47 +64,10 @@ class HomeBody extends StatelessWidget {
                 ),
               ),
               HourlyWeatherWidget(
-                weather: state.weatherEntity.currentTemp,
+                weather: state.weatherEntity.hourlyTemp,
               ),
               verticalSpace(context.heightPercentage(1.07)),
-              SizedBox(
-                height: context.heightPercentage(3.66),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SizedBox(
-                        height: 34,
-                        child: FittedBox(
-                          fit: BoxFit.fitHeight,
-                          child: Icon(
-                            Icons.location_on_outlined,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 34,
-                        child: FittedBox(
-                          fit: BoxFit.fitHeight,
-                          child: Icon(
-                            Icons.add_circle_outline_sharp,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 34,
-                        child: FittedBox(
-                          fit: BoxFit.fitHeight,
-                          child: Icon(
-                            Icons.menu,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              const BottomBar(),
             ],
           );
         }

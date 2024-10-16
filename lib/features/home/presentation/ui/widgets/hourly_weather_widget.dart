@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
+import 'package:weather_app/utils/constants.dart';
 import 'package:weather_app/utils/extensions.dart';
 
 import '../../../../../utils/app_text_styles.dart';
@@ -10,9 +13,10 @@ class HourlyWeatherWidget extends StatelessWidget {
     super.key,
     required this.weather,
   });
-  final int weather;
+  final List<int> weather;
   @override
   Widget build(BuildContext context) {
+    String formattedDate = DateFormat('MMMM, d').format(Constants.today);
     return Container(
       height: context.heightPercentage(28),
       clipBehavior: Clip.hardEdge,
@@ -25,7 +29,7 @@ class HourlyWeatherWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          verticalSpace(30),
+          verticalSpace(context.heightPercentage(2.5)),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 46),
             child: Row(
@@ -33,16 +37,18 @@ class HourlyWeatherWidget extends StatelessWidget {
               children: [
                 Text(
                   "Today",
-                  style: Styles.w600s20,
+                  style: Styles.w600s20
+                      .copyWith(fontSize: context.heightPercentage(3).h),
                 ),
                 Text(
-                  "July, 21",
-                  style: Styles.w600s20,
+                  formattedDate,
+                  style: Styles.w600s20
+                      .copyWith(fontSize: context.heightPercentage(3).h),
                 )
               ],
             ),
           ),
-          verticalSpace(20),
+          verticalSpace(context.heightPercentage(1)),
           const Divider(
             color: Color(0XFF8e78c8),
             thickness: 2,
@@ -50,6 +56,7 @@ class HourlyWeatherWidget extends StatelessWidget {
           verticalSpace(context.heightPercentage(1.6)),
           Expanded(
             child: ListView.builder(
+              itemCount: 24,
               padding: const EdgeInsets.only(left: 24),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => FittedBox(
@@ -58,7 +65,7 @@ class HourlyWeatherWidget extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        " $weather°",
+                        " ${weather[index]}°",
                         style: Styles.w600s18,
                       ),
                       Image.asset(
@@ -67,7 +74,7 @@ class HourlyWeatherWidget extends StatelessWidget {
                         width: 66,
                       ),
                       Text(
-                        " 15.00",
+                        " $index.00",
                         style: Styles.w600s18,
                       ),
                     ],
@@ -76,7 +83,7 @@ class HourlyWeatherWidget extends StatelessWidget {
               ),
             ),
           ),
-          verticalSpace(context.heightPercentage(3)),
+          verticalSpace(context.heightPercentage(2.5)),
         ],
       ),
     );

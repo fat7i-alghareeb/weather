@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import '../../features/home/data/models/weather_model.dart';
+import '../../features/home/data/models/weatherstack/weather_model.dart';
 import '../constants.dart';
 part 'api_service.g.dart';
 

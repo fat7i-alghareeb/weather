@@ -47,7 +47,9 @@ class DetailsBody extends StatelessWidget {
             ),
           ),
           verticalSpace(15),
-          const ForecastList(),
+          ForecastList(
+            weatherForecastTemp: weatherEntity.dailyTemp,
+          ),
           verticalSpace(35),
           const AirQualityWIdget(),
           verticalSpace(40),

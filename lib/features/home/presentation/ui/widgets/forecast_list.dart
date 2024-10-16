@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../../utils/assets.dart';
 import '../../../../../utils/constants.dart';
 import 'forecast_card.dart';
 
 class ForecastList extends StatefulWidget {
-  const ForecastList({super.key});
-
+  const ForecastList({super.key, required this.weatherForecastTemp});
+  final List<int> weatherForecastTemp;
   @override
   State<ForecastList> createState() => _ForecastListState();
 }
 
 class _ForecastListState extends State<ForecastList> {
   final ScrollController _scrollController = ScrollController();
+  final List<DateTime> upcomingDays =
+      List.generate(7, (index) => Constants.today.add(Duration(days: index)));
 
   void _scrollLeft() {
     _scrollController.animateTo(
@@ -20,6 +23,10 @@ class _ForecastListState extends State<ForecastList> {
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );
+  }
+
+  String formatDate(DateTime date) {
+    return DateFormat('EEE').format(date);
   }
 
   void _scrollRight() {
@@ -45,7 +52,9 @@ class _ForecastListState extends State<ForecastList> {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.only(right: 8),
-                  child: ForecastCard(day: Constants.days[index], temp: '18°C'),
+                  child: ForecastCard(
+                      day: formatDate(upcomingDays[index]),
+                      temp: '${widget.weatherForecastTemp[index]}°C'),
                 );
               },
             ),
