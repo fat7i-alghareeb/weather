@@ -51,7 +51,9 @@ class DetailsBody extends StatelessWidget {
             weatherForecastTemp: weatherEntity.dailyTemp,
           ),
           verticalSpace(35),
-          const AirQualityWIdget(),
+          AirQualityWIdget(
+            airQuality: weatherEntity.airQuality,
+          ),
           verticalSpace(40),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40),

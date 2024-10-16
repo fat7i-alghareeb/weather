@@ -7,8 +7,9 @@ import '../../../../../utils/spacing.dart';
 class AirQualityWIdget extends StatelessWidget {
   const AirQualityWIdget({
     super.key,
+    required this.airQuality,
   });
-
+  final int airQuality;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,7 +42,7 @@ class AirQualityWIdget extends StatelessWidget {
           ),
           verticalSpace(18),
           Text(
-            "3-Low Health Risk",
+            "${airQuality.toString()}-Low Health Risk",
             style: Styles.w600s28,
           ),
           verticalSpace(10),
